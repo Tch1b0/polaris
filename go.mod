@@ -1,3 +1,3 @@
-module github.com/Tch1b0/star-grappler
+module github.com/tch1b0/stargrabber
 
 go 1.19
