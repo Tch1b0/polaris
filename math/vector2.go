@@ -1,14 +1,12 @@
-package extra
+package math
 
 import (
 	"fmt"
 	"math"
 	"reflect"
-
-	"github.com/tch1b0/stargrabber/pkg/general"
 )
 
-type Vector2[T general.Number] struct {
+type Vector2[T Number] struct {
 	X T
 	Y T
 }

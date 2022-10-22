@@ -1,14 +1,12 @@
-package extra
+package math
 
 import (
 	"fmt"
 	"math"
 	"reflect"
-
-	"github.com/tch1b0/stargrabber/pkg/general"
 )
 
-type Vector3[T general.Number] struct {
+type Vector3[T Number] struct {
 	X T
 	Y T
 	Z T
@@ -48,10 +46,10 @@ func (v *Vector3[T]) ScalarMul(fac T) Vector3[T] {
 
 func (v *Vector3[T]) DistanceTo(o *Vector3[T]) float64 {
 	return math.Sqrt(
-		math.Sqrt(
+		math.Pow(math.Sqrt(
 			math.Pow(float64(o.X-v.X), 2)+
 				math.Pow(float64(o.Y-v.Y), 2),
-		) + math.Pow(float64(o.Z-v.Z), 2),
+		), 2) + math.Pow(float64(o.Z-v.Z), 2),
 	)
 }
 
