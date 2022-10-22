@@ -1,14 +1,14 @@
 package extra
 
 import (
+	"fmt"
 	"math"
+	"reflect"
+
+	"github.com/tch1b0/stargrabber/pkg/general"
 )
 
-type Number interface {
-	int | int8 | int16 | int32 | int64 | uint | uint8 | uint16 | uint32 | uint64 | float32 | float64
-}
-
-type Vector2[T Number] struct {
+type Vector2[T general.Number] struct {
 	X T
 	Y T
 }
@@ -47,4 +47,17 @@ func (v *Vector2[T]) DistanceTo(o *Vector2[T]) float64 {
 
 func (v *Vector2[T]) ManhattanDistanceTo(o *Vector2[T]) float64 {
 	return math.Abs(float64(v.X-o.X)) + math.Abs(float64(v.Y-o.Y))
+}
+
+func (v *Vector2[T]) String() string {
+	var x any = v.X
+	var y any = v.Y
+
+	numType := reflect.TypeOf(v.X).String()
+
+	if numType == "float32" || numType == "float64" {
+		return fmt.Sprintf("(%f|%f)", x, y)
+	} else {
+		return fmt.Sprintf("(%d|%d)", x, y)
+	}
 }
