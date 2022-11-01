@@ -6,6 +6,7 @@ import (
 	"reflect"
 )
 
+// A vector with 2 dimensions (x, y)
 type Vector2[T Number] struct {
 	X T
 	Y T
@@ -39,10 +40,12 @@ func (v *Vector2[T]) ScalarMul(fac T) Vector2[T] {
 	}
 }
 
+// Calculate the distance between this vector and another one using the pythagora theorem
 func (v *Vector2[T]) DistanceTo(o *Vector2[T]) float64 {
 	return math.Sqrt(math.Pow(float64(o.X-v.X), 2) + math.Pow(float64(o.Y-v.Y), 2))
 }
 
+// Calculate the distance between this vector and another one using the manhattan distance
 func (v *Vector2[T]) ManhattanDistanceTo(o *Vector2[T]) float64 {
 	return math.Abs(float64(v.X-o.X)) + math.Abs(float64(v.Y-o.Y))
 }

@@ -6,6 +6,7 @@ import (
 	"reflect"
 )
 
+// A vector with 3 dimensions (x, y, z)
 type Vector3[T Number] struct {
 	X T
 	Y T
@@ -44,6 +45,7 @@ func (v *Vector3[T]) ScalarMul(fac T) Vector3[T] {
 	}
 }
 
+// Calculate the distance between this vector and another one using the pythagora theorem
 func (v *Vector3[T]) DistanceTo(o *Vector3[T]) float64 {
 	return math.Sqrt(
 		math.Pow(math.Sqrt(
@@ -53,6 +55,7 @@ func (v *Vector3[T]) DistanceTo(o *Vector3[T]) float64 {
 	)
 }
 
+// Calculate the distance between this vector and another one using the manhattan distance
 func (v *Vector3[T]) ManhattanDistanceTo(o *Vector3[T]) float64 {
 	return math.Abs(float64(v.X-o.X)) + math.Abs(float64(v.Y-o.Y)) + math.Abs(float64(v.Z-o.Z))
 }
