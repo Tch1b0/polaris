@@ -39,3 +39,14 @@ func All[T any](arr []T, predicate func(T, int) bool) bool {
 
 	return true
 }
+
+func None[T any](arr []T, predicate func(T, int) bool) bool {
+    for i, item := range arr {
+        if predicate(item, i) {
+            return false
+        }
+    }
+
+    return true;
+}
+
