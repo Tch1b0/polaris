@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Tch1b0/polaris/input"
 	"github.com/stretchr/testify/require"
-	"github.com/tch1b0/polaris/input"
 )
 
 func TestRead(t *testing.T) {
