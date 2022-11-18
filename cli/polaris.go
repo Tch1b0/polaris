@@ -58,7 +58,7 @@ func replaceVars(text []byte, vals map[string]string) []byte {
 }
 
 func requireArg(pos int) string {
-	if len(os.Args) < pos {
+	if len(os.Args) < pos+1 {
 		help()
 		return ""
 	} else {
