@@ -1,0 +1,19 @@
+package main
+
+import "fmt"
+
+func part1() int {
+    return -1
+}
+
+func part2() int {
+    return -1
+}
+
+func main() {
+    fmt.Printf("PART 1: %d\n", part1())
+
+    
+    fmt.Printf("PART 2: %d\n", part2())
+}
+

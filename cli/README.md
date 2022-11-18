@@ -1,0 +1,7 @@
+# cli
+
+## usage
+
+```
+$ polaris [DAY]
+```
