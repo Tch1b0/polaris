@@ -38,7 +38,8 @@ func main() {
 
 	os.MkdirAll(dayDir, 0777)
 	os.WriteFile(path.Join(dayDir, "solution.go"), solutionTemplate, 0644)
-	os.WriteFile(path.Join(dayDir, "solution_test.go"), []byte(string(testTemplate)), 0644)
+	os.WriteFile(path.Join(dayDir, "solution_test.go"), testTemplate, 0644)
+	os.WriteFile(path.Join(dayDir, "README.md"), readmeTemplate, 0644)
 }
 
 func help() {
