@@ -1,0 +1,3 @@
+# AOC day {{DAY_NAME}}
+
+[Task](https://adventofcode.com/2022/day/{{DAY_NUM}})
