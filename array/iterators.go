@@ -71,3 +71,9 @@ func None[T any](arr []T, predicate func(T, int) bool) bool {
 
 	return true
 }
+
+func Each[T any](arr []T, predicate func(T, int)) {
+	for i, item := range arr {
+		predicate(item, i)
+	}
+}

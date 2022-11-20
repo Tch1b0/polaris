@@ -59,3 +59,43 @@ func MPop[T any](arr *[]T, idx int) T {
 
 	return item
 }
+
+func Insert[T any](arr []T, newItem T, idx int) []T {
+	n := []T{}
+	for i, value := range arr {
+		if i == idx {
+			n = append(n, newItem)
+		}
+
+		n = append(n, value)
+	}
+
+	return n
+}
+
+func Equals[T comparable](arr1 []T, arr2 []T) bool {
+	for i, value := range arr1 {
+		if value != arr2[i] {
+			return false
+		}
+	}
+
+	return true
+}
+
+func Move[T any](arr []T, from int, to int) []T {
+	n := []T{}
+	moveVal := arr[from]
+
+	for i, value := range arr {
+		if i == from {
+			continue
+		} else if i == to {
+			n = append(n, moveVal)
+		}
+
+		n = append(n, value)
+	}
+
+	return n
+}
