@@ -76,7 +76,6 @@ func Sort[T Number](arr []T) []T {
 				break
 			}
 		}
-		fmt.Println(arr)
 	}
 
 	return arr
