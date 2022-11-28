@@ -1,10 +1,6 @@
 package math
 
-import (
-	"fmt"
-
-	"github.com/Tch1b0/polaris/array"
-)
+import "github.com/Tch1b0/polaris/array"
 
 func Min[T Number](arr []T) T {
 	if len(arr) == 0 {
