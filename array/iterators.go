@@ -3,7 +3,7 @@ package array
 func Map[T any, N any](arr []T, predicate func(T, int) N) []N {
 	newArr := make([]N, len(arr))
 	for i, item := range arr {
-		newArr = append(newArr, predicate(item, i))
+		newArr[i] = predicate(item, i)
 	}
 
 	return newArr
