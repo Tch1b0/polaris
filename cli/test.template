@@ -3,7 +3,8 @@ package main_test
 import (
     "testing"
     "strings"
-    "github.com/tch1b0/polaris/input"
+
+    "github.com/Tch1b0/polaris/input"
     "github.com/stretchr/testify/require"
 )
 
