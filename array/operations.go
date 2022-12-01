@@ -23,15 +23,9 @@ func Reverse[T any](arr []T) []T {
 }
 
 func Remove[T comparable](arr []T, target T) []T {
-	n := []T{}
-
-	for _, item := range arr {
-		if item != target {
-			n = append(n, item)
-		}
-	}
-
-	return n
+	return Filter(arr, func(item T, _ int) bool {
+        return item != target
+    })
 }
 
 func Pop[T any](arr []T, idx int) []T {
