@@ -33,6 +33,7 @@ func main() {
 		"DAY_PATH": dayDir,
 	}
 
+	solutionTemplate = replaceVars(solutionTemplate, dayVars)
 	testTemplate = replaceVars(testTemplate, dayVars)
 	readmeTemplate = replaceVars(readmeTemplate, dayVars)
 
