@@ -37,3 +37,13 @@ func Values[T comparable, N any](m map[T]N) []N {
 
 	return values
 }
+
+func Invert[T comparable, N comparable](m map[T]N) map[N]T {
+    n := make(map[N]T, len(m))
+    for k, v := range m {
+        n[v] = k
+    }
+
+    return n
+}
+
