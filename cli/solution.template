@@ -1,6 +1,17 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+
+    "github.com/Tch1b0/polaris/input"
+)
+
+
+func getInput() string {
+    return input.Process("{{DAY_PATH}}/input.txt", func(str string) string {
+        return str
+    })
+}
 
 func part1() int {
     return -1
