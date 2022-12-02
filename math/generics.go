@@ -2,6 +2,18 @@ package math
 
 import "github.com/Tch1b0/polaris/array"
 
+func Abs[T Number](n T) T {
+    if n < 0 {
+        return -n
+    }
+
+    return n
+}
+
+func Between[T Number](n, lower, upper T) bool {
+    return n >= lower && n <= upper
+}
+
 func Min[T Number](arr []T) T {
 	if len(arr) == 0 {
 		panic("Invalid array length")
