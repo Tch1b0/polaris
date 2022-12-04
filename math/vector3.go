@@ -3,7 +3,6 @@ package math
 import (
 	"fmt"
 	"math"
-	"reflect"
 )
 
 // A vector with 3 dimensions (x, y, z)
@@ -13,7 +12,7 @@ type Vector3[T Number] struct {
 	Z T
 }
 
-func (v *Vector3[T]) Add(o *Vector3[T]) Vector3[T] {
+func (v Vector3[T]) Add(o Vector3[T]) Vector3[T] {
 	return Vector3[T]{
 		X: v.X + o.X,
 		Y: v.Y + o.Y,
@@ -21,7 +20,7 @@ func (v *Vector3[T]) Add(o *Vector3[T]) Vector3[T] {
 	}
 }
 
-func (v *Vector3[T]) Sub(o *Vector3[T]) Vector3[T] {
+func (v Vector3[T]) Sub(o Vector3[T]) Vector3[T] {
 	return Vector3[T]{
 		X: v.X - o.X,
 		Y: v.Y - o.Y,
@@ -29,7 +28,7 @@ func (v *Vector3[T]) Sub(o *Vector3[T]) Vector3[T] {
 	}
 }
 
-func (v *Vector3[T]) Mul(o *Vector3[T]) Vector3[T] {
+func (v Vector3[T]) Mul(o Vector3[T]) Vector3[T] {
 	return Vector3[T]{
 		X: v.X * o.X,
 		Y: v.Y * o.Y,
@@ -37,7 +36,7 @@ func (v *Vector3[T]) Mul(o *Vector3[T]) Vector3[T] {
 	}
 }
 
-func (v *Vector3[T]) ScalarMul(fac T) Vector3[T] {
+func (v Vector3[T]) ScalarMul(fac T) Vector3[T] {
 	return Vector3[T]{
 		X: v.X * fac,
 		Y: v.Y * fac,
@@ -46,7 +45,7 @@ func (v *Vector3[T]) ScalarMul(fac T) Vector3[T] {
 }
 
 // Calculate the distance between this vector and another one using the pythagora theorem
-func (v *Vector3[T]) DistanceTo(o *Vector3[T]) float64 {
+func (v Vector3[T]) DistanceTo(o Vector3[T]) float64 {
 	return math.Sqrt(
 		math.Pow(math.Sqrt(
 			math.Pow(float64(o.X-v.X), 2)+
@@ -56,20 +55,18 @@ func (v *Vector3[T]) DistanceTo(o *Vector3[T]) float64 {
 }
 
 // Calculate the distance between this vector and another one using the manhattan distance
-func (v *Vector3[T]) ManhattanDistanceTo(o *Vector3[T]) float64 {
+func (v Vector3[T]) ManhattanDistanceTo(o Vector3[T]) float64 {
 	return math.Abs(float64(v.X-o.X)) + math.Abs(float64(v.Y-o.Y)) + math.Abs(float64(v.Z-o.Z))
 }
 
-func (v *Vector3[T]) String() string {
-	var x any = v.X
-	var y any = v.Y
-	var z any = v.Z
+func (v Vector3[T]) Array() [3]T {
+	return [3]T{v.X, v.Y, v.Z}
+}
 
-	numType := reflect.TypeOf(v.X).String()
+func (v Vector3[T]) String() string {
+	return fmt.Sprintf("(%v|%v|%v)", v.X, v.Y, v.Z)
+}
 
-	if numType == "float32" || numType == "float64" {
-		return fmt.Sprintf("(%f|%f|%f)", x, y, z)
-	} else {
-		return fmt.Sprintf("(%d|%d|%d)", x, y, z)
-	}
+func NewVector3[T Number](x T, y T, z T) Vector3[T] {
+	return Vector3[T]{x, y, z}
 }
