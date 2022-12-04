@@ -77,10 +77,3 @@ func (s Span[T]) Array() []T {
 func (s Span[T]) String() string {
 	return fmt.Sprintf("Span{%v..%v}", s.From, s.To)
 }
-
-func NewSpan[T Number](from T, to T) Span[T] {
-	return Span[T]{
-		From: from,
-		To:   to,
-	}
-}

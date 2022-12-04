@@ -66,7 +66,3 @@ func (v Vector3[T]) Array() [3]T {
 func (v Vector3[T]) String() string {
 	return fmt.Sprintf("(%v|%v|%v)", v.X, v.Y, v.Z)
 }
-
-func NewVector3[T Number](x T, y T, z T) Vector3[T] {
-	return Vector3[T]{x, y, z}
-}

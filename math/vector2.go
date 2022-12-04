@@ -56,7 +56,3 @@ func (v Vector2[T]) Array() [2]T {
 func (v Vector2[T]) String() string {
 	return fmt.Sprintf("(%v|%v)", v.X, v.Y)
 }
-
-func NewVector2[T Number](x T, y T) Vector2[T] {
-	return Vector2[T]{x, y}
-}
