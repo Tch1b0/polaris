@@ -58,6 +58,10 @@ func (s Span[T]) Contains(n T) bool {
 	return s.From <= n && s.To >= n
 }
 
+func (s Span[T]) ContainsSpan(o Span[T]) bool {
+	return s.Contains(o.From) && s.Contains(o.To)
+}
+
 func (s Span[T]) Overlaps(o Span[T]) bool {
 	return s.Contains(o.From) || s.Contains(o.To) || o.Contains(s.From) || o.Contains(s.To)
 }
