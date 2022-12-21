@@ -39,11 +39,32 @@ func Values[T comparable, N any](m map[T]N) []N {
 }
 
 func Invert[T comparable, N comparable](m map[T]N) map[N]T {
-    n := make(map[N]T, len(m))
-    for k, v := range m {
-        n[v] = k
-    }
+	n := make(map[N]T, len(m))
+	for k, v := range m {
+		n[v] = k
+	}
 
-    return n
+	return n
 }
 
+func FromArray[T comparable, N any](keys []T, values []N) map[T]N {
+	m := make(map[T]N, len(keys))
+
+	for i, key := range keys {
+		m[key] = values[i]
+	}
+
+	return m
+}
+
+func ToArray[T comparable, N any](m map[T]N) ([]T, []N) {
+	keys := []T{}
+	vals := []N{}
+
+	for key, value := range m {
+		keys = append(keys, key)
+		vals = append(vals, value)
+	}
+
+	return keys, vals
+}
