@@ -39,6 +39,27 @@ func (v Vector2[T]) ScalarMul(fac T) Vector2[T] {
 	}
 }
 
+func (v Vector2[T]) ScalarMulVec(o Vector2[T]) T {
+	return v.X*o.X + v.Y*o.Y
+}
+
+func (v Vector2[T]) Abs() T {
+	return T(math.Sqrt(float64(v.X*v.X + v.Y*v.Y)))
+}
+
+// alias for v.Abs()
+func (v Vector2[T]) Length() T {
+	return v.Abs()
+}
+
+func (v Vector2[T]) Normalize() Vector2[T] {
+	l := v.Abs()
+	return Vector2[T]{
+		X: v.X / l,
+		Y: v.Y / l,
+	}
+}
+
 // Calculate the distance between this vector and another one using the pythagora theorem
 func (v Vector2[T]) DistanceTo(o Vector2[T]) float64 {
 	return math.Sqrt(math.Pow(float64(o.X-v.X), 2) + math.Pow(float64(o.Y-v.Y), 2))
