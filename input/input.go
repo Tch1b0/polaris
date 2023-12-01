@@ -1,12 +1,10 @@
 package input
 
-import (
-	"io/ioutil"
-)
+import "os"
 
 // read and process the input
 func Process[T any](path string, processor func(string) T) T {
-	content, err := ioutil.ReadFile(path)
+	content, err := os.ReadFile(path)
 	if err != nil {
 		panic(err)
 	}
@@ -15,7 +13,7 @@ func Process[T any](path string, processor func(string) T) T {
 }
 
 func Read(path string) string {
-	content, err := ioutil.ReadFile(path)
+	content, err := os.ReadFile(path)
 	if err != nil {
 		panic(err)
 	}
