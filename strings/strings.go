@@ -25,6 +25,17 @@ func IsAnagram(str1, str2 string) bool {
 	return Sort(str1) == Sort(str2)
 }
 
+func Contains(str string, sub string) bool {
+	for i := 0; i <= len(str)-len(sub)-1; i++ {
+		block := str[i : i+len(sub)]
+		if block == sub {
+			return true
+		}
+	}
+
+	return false
+}
+
 func Itoa(n int) string {
 	return strconv.Itoa(n)
 }
